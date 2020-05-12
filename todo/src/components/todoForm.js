@@ -1,7 +1,7 @@
 import React from 'react'
 export default function TodoForm({ addTask, newTask, captureTask,clearCompleted }) {
     return (
-      <form>
+      <form
         onSubmit={(event) => {
           event.preventDefault();
           addTask(newTask);

@@ -1,14 +1,14 @@
 import React, {useState, useReducer} from 'react';
 import './App.css';
 import { taskReducer, initialTasks } from "./reducers/taskReducer"
-import todoList from "./components/todoList"
-import todoForm from "./components/todoForm"
+import TodoList from "./components/todoList"
+import TodoForm from "./components/todoForm"
 
 
 
 function App() {
-  const [state, dispatch] = useReducer(taskReducer, initialTasks)
   const [newTask, setNewTask] = useState("")
+  const [state, dispatch] = useReducer(taskReducer, initialTasks)
 
   const captureTask = (e) => {
     setNewTask(e.target.value)
@@ -26,23 +26,22 @@ function App() {
     }
   };
 
-  const clearCompleted = () => {
-    dispatch({ type: "CLEAR_COMPLETED" });
+  const toggleCompleted = (id) => {
+    dispatch({ type: "TOGGLE_COMPLETED", payload: id });
   };
 
-  const toggleCompleted = (id) => {
-    // console.log(id);
-    dispatch({ type: "TOGGLE_COMPLETED", payload: id });
+  const clearCompleted = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
   };
 
   return (
     <div className="App">
       <header>
-        <title>Tasks</title>
+        <h1>Tasks</h1>
       </header>
-      <todoForm addTask={addTask} newTask={newTask} captureTask={captureTask} clearCompleted={clearCompleted}/>
+      <TodoForm addTask={addTask} newTask={newTask} captureTask={captureTask} clearCompleted={clearCompleted}/>
       <section>
-      <todoList state={state} toggleCompleted={toggleCompleted} />
+      <TodoList state={state} toggleCompleted={toggleCompleted} />
       </section>
     </div>
   );

@@ -32,7 +32,7 @@ export const taskReducer = (state, action) => {
 export const initialTasks = {
   tasks: [
     {
-      taskName: "example task",
+      taskName: "testing",
       completed: false,
       id: Date.now(),
     },
