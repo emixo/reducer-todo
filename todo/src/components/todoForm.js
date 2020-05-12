@@ -1,6 +1,7 @@
 import React from 'react'
 export default function TodoForm({ addTask, newTask, captureTask,clearCompleted }) {
     return (
+        <div>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -14,7 +15,8 @@ export default function TodoForm({ addTask, newTask, captureTask,clearCompleted 
           onChange={captureTask}
         />
         <button>Add Task</button>
-        <button onClick={clearCompleted}>Clear Completed</button>
       </form>
+      <button onClick={clearCompleted}>Clear Completed</button>
+      </div>
     );
   }

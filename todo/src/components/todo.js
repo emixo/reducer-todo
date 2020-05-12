@@ -1,10 +1,12 @@
-import React from "react";
-
-function Todo({ taskName, completed, id, toggleCompleted }) {
+import React from 'react';
+function Todo({ taskName, completed, id, toggleCompleted, dispatch}) {
     return (
       <div
+        // onClick={() => {
+        //   toggleCompleted(id);
+        // }}
         onClick={() => {
-          toggleCompleted(id);
+            dispatch({type:'TOGGLE_COMPLETED', payload:id})
         }}
         className={completed === true ? "completed" : ""}
       >

@@ -26,8 +26,8 @@ function App() {
     }
   };
 
-  const toggleCompleted = (id) => {
-    dispatch({ type: "TOGGLE_COMPLETED", payload: id });
+  const toggleCompleted = (task) => {
+    dispatch({ type: "TOGGLE_COMPLETED", payload: task.id });
   };
 
   const clearCompleted = () => {
@@ -41,7 +41,7 @@ function App() {
       </header>
       <TodoForm addTask={addTask} newTask={newTask} captureTask={captureTask} clearCompleted={clearCompleted}/>
       <section>
-      <TodoList state={state} toggleCompleted={toggleCompleted} />
+      <TodoList state={state} toggleCompleted={toggleCompleted} dispatch={dispatch}/>
       </section>
     </div>
   );
